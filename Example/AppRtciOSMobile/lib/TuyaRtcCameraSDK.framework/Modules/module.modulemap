@@ -1,0 +1,6 @@
+framework module TuyaRtcCameraSDK {
+  umbrella header "TuyaRtcCameraSDK.h"
+
+  export *
+  module * { export * }
+}
