@@ -95,7 +95,7 @@ Copy the library files
 | us | America |
 | eu | Europe |
 | in | India |
-| we | WesternEurope
+| ue | EasternAmerica |
 | we | WesternEurope |
 
 
