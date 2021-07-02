@@ -32,7 +32,11 @@ Modify some parameters in MainActivity.java to the appropriate ones
 - According to your region, fill in the appropriate regionCode, you can refer to the following content `RegionCode Comparison Table`.
 - Here is the parameter that should be filled in with "cn" for my region (Hangzhou, Zhejiang Province, China)
 ```c
-[[TuyaRTCEngine alloc] initRtcEngineWithClientId:clientId secretId:secret authCodeId:authCode regionCode:@"cn" delegate:delegate];
+[[TuyaRTCEngine alloc] initRtcEngineWithClientId:clientId 
+                                        secretId:secret 
+                                        authCodeId:authCode 
+                                        regionCode:@"cn" 
+                                        delegate:delegate];
 ```
 
 ### Step 3
