@@ -25,6 +25,12 @@ TuyaRTCCamera SDK是一套基于WebRTC技术的音视频综合解决方案，通
 ``` 
 
 ### 第二步
+根据你所在的区域，填入合适的regionCode，可参照下面的内容`RegionCode 对照表`
+下面是以我所在的区域(中国，浙江省杭州市），应该填入的参数为"cn"
+[[TuyaRTCEngine alloc] initRtcEngineWithClientId:clientId secretId:secret authCodeId:authCode regionCode:@"cn" delegate:delegate];
+
+
+### 第三步
 copy 库文件
 - 把Libraries的某一个版本下的framework文件copy到当前的工程中放入合适的位置，确保可以被正确链接
 

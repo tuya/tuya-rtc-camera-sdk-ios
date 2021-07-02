@@ -17,7 +17,7 @@ operations, especially for audio and video processing and control is the core fu
 - Support for interacting with the camera
 
 ## Steps to integrate the SDK
-### First step
+###  Step 1
 Modify some parameters in MainActivity.java to the appropriate ones
 ``` c
     ...
@@ -27,7 +27,13 @@ Modify some parameters in MainActivity.java to the appropriate ones
     _authCode = @"input your client id";
     ...
 ``` 
+
 ### Step 2
+According to your region, fill in the appropriate regionCode, you can refer to the following content `RegionCode Comparison Table`.
+Here is the parameter that should be filled in with "cn" for my region (Hangzhou, Zhejiang Province, China)
+[[TuyaRTCEngine alloc] initRtcEngineWithClientId:clientId secretId:secret authCodeId:authCode regionCode:@"cn" delegate:delegate];
+
+### Step 3
 Copy the library files
 - Copy the framework files from one of the Libraries versions to the current project and put it in the right place to make sure it can be linked correctly
 
