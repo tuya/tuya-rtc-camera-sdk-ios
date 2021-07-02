@@ -72,8 +72,7 @@ copy 库文件
 | :------------ | :------------------------------------------------------------------- |
 | rtcCamera:didVideoFrame | 当前Camera的的视频数据回调函数 |
 | rtcCamera:didFristVideoFrameWith:andHeight | 当前Camera的第一帧视频数据回调函数 |
-| rtcCamera:didResolutionChangedWithOldWidth:andOldHeight:andNewWidth:andNewHeight:
- | 当前Camera的视频分辨率变化时候的回调函数 |
+| rtcCamera:didResolutionChangedWithOldWidth:andOldHeight:andNewWidth:andNewHeight: | 当前Camera的视频分辨率变化时候的回调函数 |
 
 ## RegionCode 对照表
 | 区域缩写 | 范围 |
