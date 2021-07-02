@@ -1,9 +1,9 @@
 
-## Tuya RTC Camera SDK
+## Tuya RTC Camera SDK - RTCCamera Audio/Video Development Kit
 
 
 
-[中文版](README-zh.md)|[English](README.md)|
+[中文版](README-zh.md)|[English](README.md)
 
 ## Features Overview
 TuyaRTCCamera SDK is a comprehensive solution for audio and video based on WebRTC technology,
@@ -29,8 +29,8 @@ Modify some parameters in MainActivity.java to the appropriate ones
 ``` 
 ### Step 2
 Copy the library files
-- In the current project directory, if there is no directory for the library files, execute `mkdir libs` to create a new directory
-- Copy the aar file from one of the Libraries versions to the created libs directory
+- Copy the framework files from one of the Libraries versions to the current project and put it in the right place to make sure it can be linked correctly
+
 
 ## Capabilities Overview
 
@@ -89,8 +89,243 @@ Copy the library files
 | we | WesternEurope |
 
 
+## Docs
+Please refer to [API Reference](doc/index/index.html). Before reading, please download the code locally and open it in your browser
+
+
+## Sample code 
+
+
+- Header file
+``` c
+
+#ifndef P2PEngine_h
+#define P2PEngine_h
+#import <Foundation/Foundation.h>
+#import <WebRTC/RTCVideoRenderer.h>
+#import "TuyaRtcCameraSDK/TuyaRtcCameraSDK.h"
+
+
+@interface P2PEngine : NSObject
+
+-(void)initialize:clientId secret:(NSString*) secret authCode:(NSString*) authCode delegate:(id<TuyaRTCEngineDelegate>) delegate;
+-(void)destory;
+
+-(int)startPreview:did  renderer:(id<RTC_OBJC_TYPE(RTCVideoRenderer)>) renderer;
+-(int)stopPreview:did;
+
+-(int)startRecord:did mp4File:(NSString*) mp4File;
+-(int)stopRecord:did;
+
+
+-(int)snapshot:did jpgFile:(NSString*) jpgFile;
+
+-(int) muteAudio:did mute:(BOOL) mute;
+-(int) muteVideo:did mute:(BOOL) mute;
+
+-(BOOL) getAudioMute:did;
+
+-(BOOL) getVideoMute:did;
+@end
+
+
+#endif /* P2PEngine_h */
+
+
+``` 
+
+- Source file
+
+``` c
+
+#import <Foundation/Foundation.h>
+#import "P2PEngine.h"
+
+#pragma mark -- P2PCamera interface
+
+@interface P2PCamera : NSObject<TuyaRTCCameraDelegate>
+@property(nonatomic, weak) TuyaRTCEngine* engine;
+@end
+
+
+#pragma mark -- P2PCamera imp
+
+@implementation P2PCamera {
+    NSString* _did;
+    TuyaRTCCamera* _camera;
+}
+@synthesize engine = _engine;
+
+-(instancetype)initP2PCamera:(NSString*) deviceId
+                               engineRef:(TuyaRTCEngine*)engine {
+    if (self = [super init]) {
+        _did = deviceId;
+        _engine = engine;
+        _camera = [_engine createTuyaCameraWithDid:deviceId];
+    }
+    return self;
+}
+
+-(int)startPreview:(id<RTC_OBJC_TYPE(RTCVideoRenderer)>) renderer {
+    [_camera startPreview:renderer delegate:self];
+    return 0;
+}
+
+-(int)stopPreview {
+    [_camera stopPreview];
+    return 0;
+}
+
+-(int)startRecord:(NSString*) mp4File {
+    [_camera startRecordWithPath:mp4File];
+    return 0;
+}
+
+-(int)stopRecord {
+    [_camera stopRecord];
+    return 0;
+}
+
+-(int)snapshot:(NSString*) jpgFile {
+    [_camera snapShot:jpgFile];
+    return 0;
+}
+
+-(int) muteAudio:(BOOL) mute {
+    [_camera muteRemoteAudioWith:mute];
+    return 0;
+}
+
+-(int) muteVideo:(BOOL) mute {
+    [_camera muteRemoteVideoWith:mute];
+    return 0;
+}
+
+-(BOOL) getAudioMute {
+    return [_camera getRemoteAudioMute];
+}
+
+
+-(BOOL) getVideoMute {
+    return [_camera getRemoteVideoMute];
+}
+
+
+- (void)rtcCamera:(TuyaRTCCamera * _Nonnull)camera onFristVideoFrameWith:(NSInteger)width
+        andHeight:(NSInteger)height {
+    
+}
+
+- (void)rtcCamera:(TuyaRTCCamera * _Nonnull)camera onResolutionChangedWithOldWidth:(NSInteger)oldWidth
+     andOldHeight:(NSInteger)oldHeight
+      andNewWidth:(NSInteger)newWidth
+     andNewHeight:(NSInteger)newHeight {
+    
+}
+
+- (void)rtcCamera:(TuyaRTCCamera * _Nonnull)camera onVideoFrame:(void * _Nonnull)frame { 
+
+}
+
+@end
+
+
+#pragma mark -- P2PEngine
+@class P2PCamera;
+@implementation P2PEngine {
+    TuyaRTCEngine *_tuyaRTCEngine;
+    NSMutableDictionary *_p2pCameras;
+}
+
+-(void)initialize:clientId secret:(NSString*) secret authCode:(NSString*) authCode delegate:(id<TuyaRTCEngineDelegate>) delegate {
+    [TuyaRTCEngine setLogConfigureWith:nil loggerHandler:^(NSString * _Nonnull message) {
+        NSLog(@"======>%s", message.UTF8String);
+    } level:3];
+    _tuyaRTCEngine = [[TuyaRTCEngine alloc] initRtcEngineWithClientId:clientId secretId:secret authCodeId:authCode regionCode:@"cn" delegate:delegate];
+    
+}
+
+-(void)destory {
+    [_tuyaRTCEngine destoryRtcEngine];
+    
+}
+
+-(int)startPreview:did  renderer:(id<RTC_OBJC_TYPE(RTCVideoRenderer)>) renderer  {
+    P2PCamera *camera = [[P2PCamera alloc] initP2PCamera:did engineRef:_tuyaRTCEngine];
+    [camera startPreview:renderer];
+    [_p2pCameras setObject:camera forKey:did];
+    return 0;
+}
+-(int)stopPreview:did {
+    P2PCamera* camera = [_p2pCameras objectForKey:did];
+    if (camera != nil) {
+        [camera stopPreview];
+    }
+
+    return 0;
+}
+
+-(int)startRecord:did mp4File:(NSString*) mp4File {
+    P2PCamera* camera = [_p2pCameras objectForKey:did];
+    if (camera != nil) {
+        [camera startRecord:mp4File];
+    }
+    return 0;
+}
+-(int)stopRecord:did {
+    P2PCamera* camera = [_p2pCameras objectForKey:did];
+    if (camera != nil) {
+        [camera stopPreview];
+    }
+    return 0;
+}
+
+
+-(int)snapshot:did jpgFile:(NSString*) jpgFile {
+    P2PCamera* camera = [_p2pCameras objectForKey:did];
+    if (camera != nil) {
+        [camera snapshot:jpgFile];
+    }
+    return 0;
+}
+
+-(int) muteAudio:did mute:(BOOL) mute {
+    P2PCamera* camera = [_p2pCameras objectForKey:did];
+    if (camera != nil) {
+        [camera muteAudio:mute];
+    }
+    return 0;
+}
+-(int) muteVideo:did mute:(BOOL) mute {
+    P2PCamera* camera = [_p2pCameras objectForKey:did];
+    if (camera != nil) {
+        [camera muteVideo:mute];
+    }
+    return 0;
+}
+
+-(BOOL) getAudioMute:did {
+    P2PCamera* camera = [_p2pCameras objectForKey:did];
+    if (camera != nil) {
+        [camera getAudioMute];
+    }
+    return YES;
+}
+
+-(BOOL) getVideoMute:did {
+    P2PCamera* camera = [_p2pCameras objectForKey:did];
+    if (camera != nil) {
+        [camera getVideoMute];
+    }
+    return YES;
+}
+@end
+
+
+``` 
+
 
 ## Latest version
-1.0.0.1
+1.0.0.0
 
 

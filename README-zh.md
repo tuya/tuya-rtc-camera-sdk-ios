@@ -26,7 +26,6 @@ TuyaRTCCamera SDK是一套基于WebRTC技术的音视频综合解决方案，通
 
 ### 第二步
 copy 库文件
-- 在当前工程的目录下，如果没有存放库文件的目录，则执行`mkdir libs` 新建一个目录
 - 把Libraries的某一个版本下的framework文件copy到当前的工程中放入合适的位置，确保可以被正确链接
 
 ## 能力概述
@@ -87,7 +86,7 @@ copy 库文件
 | we | WesternEurope |
 
 ## Docs
-请参阅[API Reference](doc/index/index.html)
+请参阅[API Reference](doc/index/index.html)，在阅读之前请把代码下载到本地，然后在用浏览器打开
 
 ## 用例代码
 
