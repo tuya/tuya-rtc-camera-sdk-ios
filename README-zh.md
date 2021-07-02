@@ -65,7 +65,6 @@ copy 库文件
 | startRecordWithPath: | 开始录制Camera的内容 |
 | stopRecord | 停止录制Camera的内容 |
 | snapShot: | 抓拍Camera的画面 |
-| genMp4Thumbnail | 生成MP4文件的封面 |
 | muteRemoteAudioWith: | 对Camera声音进行静音操作 |
 | muteRemoteVideoWith: | 对Camera画面进行开关操作 |
 | getRemoteAudioMute     | 获取Camera声音的静状态 |
@@ -75,7 +74,6 @@ copy 库文件
 **TuyaRTCEngineDelegate接口说明**
 | 参数 | 说明 |
 | :------------ | :------------------------------------------------------------------- |
-| didLogMessageWith: | SDK中的log输出回调函数 |
 | didInitalized | SDK初始化成功时候的回调函数 |
 | didDestroyed | SDK销毁成功时候的回调函数 |
 

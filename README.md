@@ -69,7 +69,6 @@ Copy the library files
 | startRecord | Start recording the contents of the camera |
 | stopRecord | stop recording the content of the Camera
 | snapShot | Snap a picture of the camera
-| genMp4Thumbnail | Generate the cover of an MP4 file |
 | muteAudio | Mute the camera's sound
 | muteVideo | Switch the camera screen on/off
 | getRemoteAudioMute | Get the mute state of the camera sound.
@@ -79,7 +78,6 @@ Copy the library files
 **TuyaRTCEngineHandler interface description**
 | parameters | description |
 | :------------ | :------------------------------------------------------------------- |
-| didLogMessageWith: | The log output callback function in the SDK |
 | didInitalized | Callback function for successful SDK initialization |
 | diDestroyed | Callback function for successful destruction of the SDK
 
