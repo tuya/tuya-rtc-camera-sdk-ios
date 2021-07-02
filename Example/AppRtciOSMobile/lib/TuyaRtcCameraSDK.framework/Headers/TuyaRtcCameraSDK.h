@@ -7,6 +7,9 @@
 
 #import <Foundation/Foundation.h>
 
+#import <TuyaRtcCameraSDK/TuyaRTCEngine.h>
+#import <TuyaRtcCameraSDK/TuyaRTCCamera.h>
+
 //! Project version number for TuyaRtcCameraSDK.
 FOUNDATION_EXPORT double TuyaRtcCameraSDKVersionNumber;
 

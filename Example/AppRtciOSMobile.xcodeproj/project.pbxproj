@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E82B8681266DBEA300E35185 /* AppRtciOSMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E82B8680266DBEA300E35185 /* AppRtciOSMobileTests.m */; };
 		E82B868C266DBEA300E35185 /* AppRtciOSMobileUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E82B868B266DBEA300E35185 /* AppRtciOSMobileUITests.m */; };
+		E8320735268F330A0001729A /* P2PEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = E8320734268F330A0001729A /* P2PEngine.m */; };
 		E87E17C3266DF56B00A3927C /* UIImage+ARDUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = E87E1795266DF56B00A3927C /* UIImage+ARDUtilities.m */; };
 		E87E17C4266DF56B00A3927C /* ic_call_end_black_24dp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E87E179A266DF56B00A3927C /* ic_call_end_black_24dp@2x.png */; };
 		E87E17C5266DF56C00A3927C /* ic_settings_black_24dp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E87E179B266DF56B00A3927C /* ic_settings_black_24dp@2x.png */; };
@@ -79,6 +80,8 @@
 		E82B868B266DBEA300E35185 /* AppRtciOSMobileUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppRtciOSMobileUITests.m; sourceTree = "<group>"; };
 		E82B868D266DBEA300E35185 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E82B86A2266DBF4300E35185 /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebRTC.framework; path = AppRtciOSMobile/lib/WebRTC.framework; sourceTree = "<group>"; };
+		E8320733268F33090001729A /* P2PEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P2PEngine.h; sourceTree = "<group>"; };
+		E8320734268F330A0001729A /* P2PEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P2PEngine.m; sourceTree = "<group>"; };
 		E87E1795266DF56B00A3927C /* UIImage+ARDUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ARDUtilities.m"; sourceTree = "<group>"; };
 		E87E1796266DF56B00A3927C /* ARDStatsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDStatsView.h; sourceTree = "<group>"; };
 		E87E1798266DF56B00A3927C /* ARDMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDMainViewController.h; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 		E87E1794266DF56B00A3927C /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				E8320733268F33090001729A /* P2PEngine.h */,
+				E8320734268F330A0001729A /* P2PEngine.m */,
 				E87E1795266DF56B00A3927C /* UIImage+ARDUtilities.m */,
 				E87E1796266DF56B00A3927C /* ARDStatsView.h */,
 				E87E1798266DF56B00A3927C /* ARDMainViewController.h */,
@@ -393,6 +398,7 @@
 				E87E17D5266DF56C00A3927C /* ARDMainView.m in Sources */,
 				E87E17D4266DF56C00A3927C /* ARDAppDelegate.m in Sources */,
 				E87E17DA266DF56C00A3927C /* ARDMainViewController.m in Sources */,
+				E8320735268F330A0001729A /* P2PEngine.m in Sources */,
 				E87E17D8266DF56C00A3927C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

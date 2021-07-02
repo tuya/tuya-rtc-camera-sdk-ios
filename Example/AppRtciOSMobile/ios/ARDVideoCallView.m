@@ -17,9 +17,9 @@
 #import "WebRTC/RTCMTLVideoView.h"  // nogncheck
 #endif
 
-#import <TuyaRtcCameraSDK/TuyaRTCEngine.h>
-#import <TuyaRtcCameraSDK/TuyaRTCCamera.h>
 #import "UIImage+ARDUtilities.h"
+
+#import "P2PEngine.h"
 
 static CGFloat const kButtonPadding = 16;
 static CGFloat const kButtonSize = 48;
@@ -40,8 +40,9 @@ static CGFloat const kStatusBarHeight = 20;
     NSString* _secret;
     NSString* _deviceId;
     NSString* _authCode;
-    TuyaRTCEngine* _tuyaRTCEngine;
-    TuyaRTCCamera* _tuyaRTCCamera;
+
+    P2PEngine* _p2pEngine;
+    BOOL _isStartPreview;
     BOOL _isStartRecord;
 }
 
@@ -117,16 +118,15 @@ static CGFloat const kStatusBarHeight = 20;
         [self addGestureRecognizer:tapRecognizer];
     }
     
-    _clientId = @"input your client id";
-    _secret = @"input your secret";
-    _authCode = @"input the auth code";
-    _deviceId = @"input the device id";
+    _clientId = @"jct4wjjgtppxth9vpjeq";
+    _secret = @"ns45erx7y9ut8trygwwnfu549eghrmqg";
+    _deviceId = @"6ceeb5b251fb016f2aamtp";
+    _authCode = @"42601963ffedb3b5f2ca7df11a9fb1eb";
+
     
-    [TuyaRTCEngine setLogConfigureWith:nil loggerHandler:^(NSString * _Nonnull message) {
-        NSLog(@"======>%s", message.UTF8String);
-    } level:3];
-    _tuyaRTCEngine = [[TuyaRTCEngine alloc] initRtcEngineWithClientId:_clientId secretId:_secret authCodeId:_authCode delegate:self];
+    _p2pEngine = [[P2PEngine alloc]initRtcEngine:_clientId secret:_secret authCode:_authCode regionCode:@"cn" delegate:self];
     _isStartRecord = false;
+    _isStartPreview = false;
     return self;
 }
 
@@ -204,16 +204,20 @@ static CGFloat const kStatusBarHeight = 20;
 #pragma mark - Private
 
 - (void)onCameraSwitch:(UIButton *)sender {
-    _tuyaRTCCamera = [_tuyaRTCEngine createTuyaCameraWithDid:_deviceId];
-    [_tuyaRTCCamera startPreview:_remoteVideoView];
+    if (!_isStartPreview) {
+        [_p2pEngine startPreview:_deviceId renderer:_remoteVideoView];
+    } else {
+        [_p2pEngine stopPreview:_deviceId];
+    }
+    _isStartPreview = !_isStartPreview;
 }
 
 - (void)onRouteChange:(UIButton *)sender {
     NSString  *recordPth = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/test.mp4"];
     if (_isStartRecord) {
-        [_tuyaRTCCamera startRecordWithPath:recordPth];
+        [_p2pEngine startRecord:_deviceId mp4File:recordPth];
     } else {
-        [_tuyaRTCCamera stopRecord];
+        [_p2pEngine stopRecord:_deviceId];
     }
     _isStartRecord = !_isStartRecord;
 //    sender.enabled = false;
@@ -230,7 +234,7 @@ static CGFloat const kStatusBarHeight = 20;
 }
 
 - (void)onHangup:(id)sender {
-    [_tuyaRTCEngine destoryRtcEngine];
+    [_p2pEngine destroy];
     [_delegate videoCallViewDidHangup:self];
 }
 
@@ -238,8 +242,12 @@ static CGFloat const kStatusBarHeight = 20;
     [_delegate videoCallViewDidEnableStats:self];
 }
 
-- (void) didLogMessageWith:(NSString *)msg {
-    NSLog(@"===>%s", msg.UTF8String);
-}
 
+-(void) didInitalized {
+    NSLog(@"Engine has been initialized.");
+}
+-(void) didDestroyed {
+    NSLog(@"Engine has been destroyed");
+
+}
 @end

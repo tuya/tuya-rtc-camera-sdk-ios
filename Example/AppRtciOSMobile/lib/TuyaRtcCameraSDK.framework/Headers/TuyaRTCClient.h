@@ -1,12 +1,12 @@
 #import <Foundation/Foundation.h>
 
-#import "WebRTC/RTCPeerConnection.h"
-#import "WebRTC/RTCVideoRenderer.h"
-#import "WebRTC/RTCVideoTrack.h"
-#import "WebRTC/RTCFileVideoCapturer.h"
-#import "WebRTC/RTCCameraVideoCapturer.h"
-#import "WebRTC/RTCIceCandidate.h"
-#import "WebRTC/RTCSessionDescription.h"
+#import <WebRTC/RTCPeerConnection.h>
+#import <WebRTC/RTCVideoRenderer.h>
+#import <WebRTC/RTCVideoTrack.h>
+#import <WebRTC/RTCFileVideoCapturer.h>
+#import <WebRTC/RTCCameraVideoCapturer.h>
+#import <WebRTC/RTCIceCandidate.h>
+#import <WebRTC/RTCSessionDescription.h>
 
 
 @class TuyaRTCClient;
@@ -67,6 +67,8 @@ didChangeIceGatheringState:(RTC_OBJC_TYPE(RTCIceGatheringState))newState;
                                          delegate:(id<TuyaRTCClientDelegate>_Nonnull)delegate;
 
 -(void)createPeerConnection:(NSMutableArray *_Nonnull)iceServers;
+
+-(void)disconnect;
 
 -(void) setRemoteDescription:(NSString*_Nonnull) sdp;
 -(void) setRemoteIceCandidate:(NSString*_Nonnull) ice;

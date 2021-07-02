@@ -6,23 +6,23 @@
 	<dict>
 		<key>Headers/TuyaRTCCamera.h</key>
 		<data>
-		BXdjCZOPmQP6wUiwCT1CWDtwWtc=
+		gj7oEdtslW+/q9bcjB6KN1RXd8E=
 		</data>
 		<key>Headers/TuyaRTCClient.h</key>
 		<data>
-		aow5wu35zZ4uL1lCRJd2vPE0HrA=
+		3F3Itw34L+eJomT54YMq1Y1ZBCI=
 		</data>
 		<key>Headers/TuyaRTCEngine.h</key>
 		<data>
-		iVHGLzRwogpv4dnTLJQ6Fl8EVK8=
+		r0kOmWq8uZt0nk+f7LIL3vZO268=
 		</data>
 		<key>Headers/TuyaRtcCameraSDK.h</key>
 		<data>
-		x5iNPrbPu4pSLk7NXC7j6jFAs9k=
+		8cm932lqhDwPmpf2LzOSRNYZDx8=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		sfnQbekDQrGz15R49o8bMgXrAPo=
+		H16wl/kjV+9qaIU44XQ+8kevaug=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -35,44 +35,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BXdjCZOPmQP6wUiwCT1CWDtwWtc=
+			gj7oEdtslW+/q9bcjB6KN1RXd8E=
 			</data>
 			<key>hash2</key>
 			<data>
-			/jqsGI+UJsBVQwVc3CkxST22sXVvEYultNt5pBX56Ec=
+			Q5Z+mQLnQ4Rh0x1qZ11U8pO3Q3NWn6mDPU4QEmMuXV8=
 			</data>
 		</dict>
 		<key>Headers/TuyaRTCClient.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			aow5wu35zZ4uL1lCRJd2vPE0HrA=
+			3F3Itw34L+eJomT54YMq1Y1ZBCI=
 			</data>
 			<key>hash2</key>
 			<data>
-			kuGJhFVw5dc+q7V/JVy0bhsp7adPSZ4mtyMWNxjiWqA=
+			nIQhmqnMh2VpcXKDlI7N8/n3ZvIYMYjvuFVd1Mzef4o=
 			</data>
 		</dict>
 		<key>Headers/TuyaRTCEngine.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			iVHGLzRwogpv4dnTLJQ6Fl8EVK8=
+			r0kOmWq8uZt0nk+f7LIL3vZO268=
 			</data>
 			<key>hash2</key>
 			<data>
-			UPsTMoWH54ZB2wu/kuN/so6oD0h7TGWWAV+AQSXnQVc=
+			wc41nczOt6RmeQAg7GzD8dRafixxp5eB3tmKl+mbkao=
 			</data>
 		</dict>
 		<key>Headers/TuyaRtcCameraSDK.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			x5iNPrbPu4pSLk7NXC7j6jFAs9k=
+			8cm932lqhDwPmpf2LzOSRNYZDx8=
 			</data>
 			<key>hash2</key>
 			<data>
-			YnMhwvZd9x9NfIVkEUEOLc8FJz4Mvsy3QTbm3Aei6dk=
+			kcQBSS9RA0/HNJ2S5F3NHXmzjCFTE4p6vqT7gfJuUYc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
