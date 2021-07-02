@@ -1,6 +1,0 @@
-framework module TuyaFFmpeg {
-  umbrella header "TuyaFFmpeg.h"
-
-  export *
-  module * { export * }
-}
