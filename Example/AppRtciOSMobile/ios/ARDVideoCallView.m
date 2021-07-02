@@ -117,10 +117,10 @@ static CGFloat const kStatusBarHeight = 20;
         [self addGestureRecognizer:tapRecognizer];
     }
     
-    _clientId = input your clientid;
-    _secret = input your secret;
-    _authCode = input the auth code;
-    _deviceId = input the deviceId;
+    _clientId = @"input your client id";
+    _secret = @"input your secret";
+    _authCode = @"input the auth code";
+    _deviceId = @"input the device id";
     
     [TuyaRTCEngine setLogConfigureWith:nil loggerHandler:^(NSString * _Nonnull message) {
         NSLog(@"======>%s", message.UTF8String);

@@ -18,9 +18,9 @@ TuyaRTCCamera SDK是一套基于WebRTC技术的音视频综合解决方案，通
 ``` c
     ...
     _clientId = @"input your client id";
-    _secret = @"input your client id";
-    _deviceId = @"input your client id";
-    _authCode = @"input your client id";
+    _secret = @"input your secret";
+    _authCode = @"input the auth code";
+    _deviceId = @"input the device id";
     ...
 ``` 
 

@@ -22,9 +22,9 @@ Modify some parameters in MainActivity.java to the appropriate ones
 ``` c
     ...
     _clientId = @"input your client id";
-    _secret = @"input your client id";
-    _deviceId = @"input your client id";
-    _authCode = @"input your client id";
+    _secret = @"input your secret";
+    _authCode = @"input the auth code";
+    _deviceId = @"input the device id";
     ...
 ``` 
 
