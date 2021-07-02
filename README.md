@@ -53,9 +53,9 @@ Copy the library files
 | Parameters | Description |
 | :------------ | :------------------------------------------------------------------- |
 | initRtcEngineWithClientId:secretId:authCodeId:regionCode:delegate: | Engine initialization |
-| destoryRtcEngine | Destroy the engine
+| destroyRtcEngine | Destroy the engine
 | createTuyaCameraWithDid:  | Creates a TuyaRTCCamera object, each object corresponds to a Camera or Stream.
-| destoryTuyaCameraWithDid:  | Destroy a TuyaRTCCamera object |
+| destroyTuyaCameraWithDid:  | Destroy a TuyaRTCCamera object |
 | setLogConfigureWith:loggerHandler:level | Set the log output of the SDK. | getSdkVersion
 | getSdkVersion | Get the SDK version information.
 | getBuildTime | Get the SDK build time |
@@ -81,7 +81,7 @@ Copy the library files
 | :------------ | :------------------------------------------------------------------- |
 | didLogMessageWith: | The log output callback function in the SDK |
 | didInitalized | Callback function for successful SDK initialization |
-| didDestoryed | Callback function for successful destruction of the SDK
+| diDestroyed | Callback function for successful destruction of the SDK
 
 **TuyaRTCCameraHandler interface description**
 | parameters | description |
@@ -121,7 +121,7 @@ Please refer to [API Reference](doc/index/index.html). Before reading, please do
 @interface P2PEngine : NSObject
 
 -(void)initialize:clientId secret:(NSString*) secret authCode:(NSString*) authCode delegate:(id<TuyaRTCEngineDelegate>) delegate;
--(void)destory;
+-(void)destroy;
 
 -(int)startPreview:did  renderer:(id<RTC_OBJC_TYPE(RTCVideoRenderer)>) renderer;
 -(int)stopPreview:did;
@@ -257,8 +257,8 @@ Please refer to [API Reference](doc/index/index.html). Before reading, please do
     
 }
 
--(void)destory {
-    [_tuyaRTCEngine destoryRtcEngine];
+-(void)destroy {
+    [_tuyaRTCEngine destroyRtcEngine];
     
 }
 

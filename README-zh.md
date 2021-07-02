@@ -49,9 +49,9 @@ copy 库文件
 | 参数 | 说明 |
 | :------------ | :------------------------------------------------------------------- |
 | initRtcEngineWithClientId:secretId:authCodeId:regionCode:delegate: | 引擎初始化 |
-| destoryRtcEngine | 销毁引擎 |
+| destroyRtcEngine | 销毁引擎 |
 | createTuyaCameraWithDid: | 创建一个TuyaRTCCamera对象，每个对象对应一个Camera或者Stream |
-| destoryTuyaCameraWithDid: | 销毁一个TuyaRTCCamera对象 |
+| destroyTuyaCameraWithDid: | 销毁一个TuyaRTCCamera对象 |
 | setLogConfigureWith:loggerHandler:level | 设置SDK的log输出. |
 | getSdkVersion | 获取SDK版本信息 |
 | getBuildTime | 获取SDK编译时间 |
@@ -77,7 +77,7 @@ copy 库文件
 | :------------ | :------------------------------------------------------------------- |
 | didLogMessageWith: | SDK中的log输出回调函数 |
 | didInitalized | SDK初始化成功时候的回调函数 |
-| didDestoryed | SDK销毁成功时候的回调函数 |
+| didDestroyed | SDK销毁成功时候的回调函数 |
 
 **TuyaRTCCameraDelegate接口说明**
 | 参数 | 说明 |
@@ -114,7 +114,7 @@ copy 库文件
 @interface P2PEngine : NSObject
 
 -(void)initialize:clientId secret:(NSString*) secret authCode:(NSString*) authCode delegate:(id<TuyaRTCEngineDelegate>) delegate;
--(void)destory;
+-(void)destroy;
 
 -(int)startPreview:did  renderer:(id<RTC_OBJC_TYPE(RTCVideoRenderer)>) renderer;
 -(int)stopPreview:did;
@@ -250,8 +250,8 @@ copy 库文件
     
 }
 
--(void)destory {
-    [_tuyaRTCEngine destoryRtcEngine];
+-(void)destroy {
+    [_tuyaRTCEngine destroyRtcEngine];
     
 }
 
