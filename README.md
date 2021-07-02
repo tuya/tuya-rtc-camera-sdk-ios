@@ -120,32 +120,38 @@ Please refer to [API Reference](doc/index/index.html). Before reading, please do
 
 @interface P2PEngine : NSObject
 
--(void)initialize:clientId secret:(NSString*) secret authCode:(NSString*) authCode delegate:(id<TuyaRTCEngineDelegate>) delegate;
+-(instancetype)initRtcEngine:clientId
+                      secret:(NSString*) secret
+                    authCode:(NSString*) authCode
+                  regionCode:(NSString*)regionCode
+                    delegate:(id<TuyaRTCEngineDelegate>) delegate;
 -(void)destroy;
 
--(int)startPreview:did  renderer:(id<RTC_OBJC_TYPE(RTCVideoRenderer)>) renderer;
+-(int)startPreview:did
+          renderer:(id<RTC_OBJC_TYPE(RTCVideoRenderer)>) renderer;
 -(int)stopPreview:did;
 
--(int)startRecord:did mp4File:(NSString*) mp4File;
+-(int)startRecord:did
+          mp4File:(NSString*) mp4File;
 -(int)stopRecord:did;
 
 
--(int)snapshot:did jpgFile:(NSString*) jpgFile;
+-(int)snapshot:did
+       jpgFile:(NSString*) jpgFile;
 
--(int) muteAudio:did mute:(BOOL) mute;
--(int) muteVideo:did mute:(BOOL) mute;
+-(int)muteAudio:did mute:(BOOL) mute;
+-(int)muteVideo:did mute:(BOOL) mute;
 
--(BOOL) getAudioMute:did;
-
--(BOOL) getVideoMute:did;
+-(BOOL)getAudioMute:did;
+-(BOOL)getVideoMute:did;
 @end
 
 
 #endif /* P2PEngine_h */
 
 
-``` 
 
+``` 
 - Source file
 
 ``` c
@@ -169,7 +175,7 @@ Please refer to [API Reference](doc/index/index.html). Before reading, please do
 @synthesize engine = _engine;
 
 -(instancetype)initP2PCamera:(NSString*) deviceId
-                               engineRef:(TuyaRTCEngine*)engine {
+                   engineRef:(TuyaRTCEngine*)engine {
     if (self = [super init]) {
         _did = deviceId;
         _engine = engine;
@@ -217,26 +223,28 @@ Please refer to [API Reference](doc/index/index.html). Before reading, please do
     return [_camera getRemoteAudioMute];
 }
 
-
 -(BOOL) getVideoMute {
     return [_camera getRemoteVideoMute];
 }
 
 
-- (void)rtcCamera:(TuyaRTCCamera * _Nonnull)camera onFristVideoFrameWith:(NSInteger)width
+- (void)rtcCamera:(TuyaRTCCamera * _Nonnull)camera
+didFristVideoFrameWith:(NSInteger)width
         andHeight:(NSInteger)height {
     
 }
 
-- (void)rtcCamera:(TuyaRTCCamera * _Nonnull)camera onResolutionChangedWithOldWidth:(NSInteger)oldWidth
+- (void)rtcCamera:(TuyaRTCCamera * _Nonnull)camera
+didResolutionChangedWithOldWidth:(NSInteger)oldWidth
      andOldHeight:(NSInteger)oldHeight
       andNewWidth:(NSInteger)newWidth
      andNewHeight:(NSInteger)newHeight {
     
 }
 
-- (void)rtcCamera:(TuyaRTCCamera * _Nonnull)camera onVideoFrame:(void * _Nonnull)frame { 
-
+- (void)rtcCamera:(TuyaRTCCamera * _Nonnull)camera
+    didVideoFrame:(void * _Nonnull)frame {
+    
 }
 
 @end
@@ -249,11 +257,23 @@ Please refer to [API Reference](doc/index/index.html). Before reading, please do
     NSMutableDictionary *_p2pCameras;
 }
 
--(void)initialize:clientId secret:(NSString*) secret authCode:(NSString*) authCode delegate:(id<TuyaRTCEngineDelegate>) delegate {
-    [TuyaRTCEngine setLogConfigureWith:nil loggerHandler:^(NSString * _Nonnull message) {
-        NSLog(@"======>%s", message.UTF8String);
-    } level:3];
-    _tuyaRTCEngine = [[TuyaRTCEngine alloc] initRtcEngineWithClientId:clientId secretId:secret authCodeId:authCode regionCode:@"cn" delegate:delegate];
+-(instancetype)initRtcEngine:clientId
+                   secret:(NSString*) secret
+                 authCode:(NSString*) authCode
+               regionCode:(NSString*) regionCode
+                 delegate:(id<TuyaRTCEngineDelegate>) delegate {
+    if (self = [super init]) {
+        _p2pCameras = [[NSMutableDictionary alloc] init];
+        [TuyaRTCEngine setLogConfigureWith:nil loggerHandler:^(NSString * _Nonnull message) {
+            NSLog(@"======>%s", message.UTF8String);
+        } level:3];
+        _tuyaRTCEngine = [[TuyaRTCEngine alloc] initRtcEngineWithClientId:clientId
+                                                                 secretId:secret
+                                                               authCodeId:authCode
+                                                               regionCode:@"cn"
+                                                                 delegate:delegate];
+    }
+    return self;
     
 }
 
@@ -268,12 +288,13 @@ Please refer to [API Reference](doc/index/index.html). Before reading, please do
     [_p2pCameras setObject:camera forKey:did];
     return 0;
 }
+
 -(int)stopPreview:did {
     P2PCamera* camera = [_p2pCameras objectForKey:did];
     if (camera != nil) {
         [camera stopPreview];
     }
-
+    
     return 0;
 }
 
@@ -332,6 +353,7 @@ Please refer to [API Reference](doc/index/index.html). Before reading, please do
     return YES;
 }
 @end
+
 
 
 ``` 
