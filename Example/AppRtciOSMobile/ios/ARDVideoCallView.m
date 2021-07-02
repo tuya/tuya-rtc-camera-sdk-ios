@@ -118,10 +118,10 @@ static CGFloat const kStatusBarHeight = 20;
         [self addGestureRecognizer:tapRecognizer];
     }
     
-    _clientId = @"jct4wjjgtppxth9vpjeq";
-    _secret = @"ns45erx7y9ut8trygwwnfu549eghrmqg";
-    _deviceId = @"6ceeb5b251fb016f2aamtp";
-    _authCode = @"42601963ffedb3b5f2ca7df11a9fb1eb";
+    _clientId = @"input your client id";
+    _secret = @"input your secret";
+    _authCode = @"input the auth code";
+    _deviceId = @"input the device id";
 
     
     _p2pEngine = [[P2PEngine alloc]initRtcEngine:_clientId secret:_secret authCode:_authCode regionCode:@"cn" delegate:self];
