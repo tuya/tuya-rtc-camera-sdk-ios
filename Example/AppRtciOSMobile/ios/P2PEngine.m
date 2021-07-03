@@ -107,9 +107,7 @@ didResolutionChangedWithOldWidth:(NSInteger)oldWidth
                  delegate:(id<TuyaRTCEngineDelegate>) delegate {
     if (self = [super init]) {
         _p2pCameras = [[NSMutableDictionary alloc] init];
-        [TuyaRTCEngine setLogConfigureWith:nil loggerHandler:^(NSString * _Nonnull message) {
-            NSLog(@"======>%s", message.UTF8String);
-        } level:3];
+        [TuyaRTCEngine setLogConfigureWith:nil level:0];
         _tuyaRTCEngine = [[TuyaRTCEngine alloc] initRtcEngineWithClientId:clientId
                                                                  secretId:secret
                                                                authCodeId:authCode

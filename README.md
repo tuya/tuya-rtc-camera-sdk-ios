@@ -102,6 +102,15 @@ Copy the library files
 ## Docs
 Please refer to [API Reference](doc/index/index.html). Before reading, please download the code locally and open it in your browser
 
+## Constraints
+- Applications can only have one TuyaRTCEngine engine
+- Applications can create different TuyaRTCCamera with different device indentify
+- The application must be in the preview state when performing record, snapshot, or mute operations, otherwise the application may not perform the results you want.
+
+
+## Our mission
+This SDK is a redevelopment based on WebRTC technology, and currently only provides simple audio and video features and scenarios. If you have found a lot of interesting ways to play with the current or subsequent WebRTC releases from Google, please contact us. Let's build a more interesting and meaningful Tuya IoT ecosystem with the ultimate experience WebRTC provides in audio and video.
+
 
 ## Sample code 
 
