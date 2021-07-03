@@ -87,8 +87,8 @@ Instance Methods</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Class Methods</h2></td></tr>
-<tr class="memitem:abe35f29fb13a88e85006ebf74019f366"><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_tuya_r_t_c_engine.html#abe35f29fb13a88e85006ebf74019f366">setLogConfigureWith:loggerHandler:level:</a></td></tr>
-<tr class="separator:abe35f29fb13a88e85006ebf74019f366"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e8450a686f30cb13fdc8247ea2afb42"><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_tuya_r_t_c_engine.html#a2e8450a686f30cb13fdc8247ea2afb42">setLogConfigureWith:level:</a></td></tr>
+<tr class="separator:a2e8450a686f30cb13fdc8247ea2afb42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a524f7af02aa72d7f5362e7139b15f402"><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_tuya_r_t_c_engine.html#a524f7af02aa72d7f5362e7139b15f402">getSdkVersion</a></td></tr>
 <tr class="separator:a524f7af02aa72d7f5362e7139b15f402"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f2250810b29b7f7538de881827b276b"><td class="memItemLeft" align="right" valign="top">(NSString *)&#160;</td><td class="memItemRight" valign="bottom">+ <a class="el" href="interface_tuya_r_t_c_engine.html#a3f2250810b29b7f7538de881827b276b">getBuildTime</a></td></tr>
@@ -256,8 +256,8 @@ Class Methods</h2></td></tr>
 
 </div>
 </div>
-<a id="abe35f29fb13a88e85006ebf74019f366"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe35f29fb13a88e85006ebf74019f366">&#9670;&nbsp;</a></span>setLogConfigureWith:loggerHandler:level:</h2>
+<a id="a2e8450a686f30cb13fdc8247ea2afb42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e8450a686f30cb13fdc8247ea2afb42">&#9670;&nbsp;</a></span>setLogConfigureWith:level:</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -267,12 +267,6 @@ Class Methods</h2></td></tr>
           <td></td>
           <td class="paramtype">(nullable NSString*)&#160;</td>
           <td class="paramname"><em>filePath</em></td>
-        </tr>
-        <tr>
-          <td class="paramkey">loggerHandler:</td>
-          <td></td>
-          <td class="paramtype">(TuyaRTCLoggerHandler)&#160;</td>
-          <td class="paramname"><em>handler</em></td>
         </tr>
         <tr>
           <td class="paramkey">level:</td>
@@ -290,7 +284,6 @@ Class Methods</h2></td></tr>
 <p>Set the log level and the name of the log file </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filePath</td><td>Save the name of the log file, can be nil, if not nil, you need to pass the absolute path of the file, otherwise, no file saving will be done for the log </td></tr>
-    <tr><td class="paramname">handler</td><td>Callback function for log processing </td></tr>
     <tr><td class="paramname">level</td><td>Log level, logs larger than this level in the engine will be output from TuyaRTCEngineDelegate.didLogMessageWith method </td></tr>
   </table>
   </dd>

@@ -75,6 +75,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Instance Methods</h2></td></tr>
+<tr class="memitem:a51907213230b2fb77785302d10e81e4d"><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="protocol_tuya_r_t_c_engine_delegate-p.html#a51907213230b2fb77785302d10e81e4d">didLogMessage:</a></td></tr>
+<tr class="separator:a51907213230b2fb77785302d10e81e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e9bc3cbf8f8485dd797e053c64544ad"><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="protocol_tuya_r_t_c_engine_delegate-p.html#a8e9bc3cbf8f8485dd797e053c64544ad">didInitalized</a></td></tr>
 <tr class="separator:a8e9bc3cbf8f8485dd797e053c64544ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18ec573e101a0980da849e2722b89ebe"><td class="memItemLeft" align="right" valign="top">(void)&#160;</td><td class="memItemRight" valign="bottom">- <a class="el" href="protocol_tuya_r_t_c_engine_delegate-p.html#a18ec573e101a0980da849e2722b89ebe">didDestroyed</a></td></tr>
@@ -97,7 +99,7 @@ Instance Methods</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function will be called when the engine has been successfully destroyed </p>
+<p>This function will be called when the engine has been destroyed successfully </p>
 
 </div>
 </div>
@@ -115,7 +117,31 @@ Instance Methods</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function is called when the engine has been successfully initialized </p>
+<p>This function is called when the engine has been initialized successfully </p>
+
+</div>
+</div>
+<a id="a51907213230b2fb77785302d10e81e4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51907213230b2fb77785302d10e81e4d">&#9670;&nbsp;</a></span>didLogMessage:</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">- (void) didLogMessage: </td>
+          <td></td>
+          <td class="paramtype">(NSString *)&#160;</td>
+          <td class="paramname"><em>message</em></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function is called when the engine need output the runtime log </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>Content of the log </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
