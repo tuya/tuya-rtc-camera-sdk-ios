@@ -1,24 +1,20 @@
 
-## Tuya RTC Camera SDK - RTCCamera Audio/Video Development Kit
+## Tuya RTC Camera SDK — RTC Camera Audio and Video Development Kit
 
 
 
-[中文版](README-zh.md)|[English](README.md)
+[English](README.md) | [中文版](README-zh.md)
 
-## Features Overview
-TuyaRTCCamera SDK is a comprehensive solution for audio and video based on WebRTC technology,
-through this SDK you can easily access Tuya IoT Colud and then perform a number of interactive
-operations on Tuya IoT devices.
-This SDK allows you to easily access the Tuya IoT Colud and perform a number of interactive
-operations, especially for audio and video processing and control is the core function of this SDK.
-- Preview Camera's content
-- Recording Camera's content
-- JPEG screen capture
-- Support for interacting with the camera
+## Overview
+Tuya RTC Camera SDK is a comprehensive solution for audio and video development based on the WebRTC technology. With this SDK, you can easily access the Tuya IoT Cloud and implement interactions with `Powered by Tuya` devices. The core feature of this SDK is audio and video processing and control. Specifically, this SDK allows users to:
+- Preview content from cameras.
+- Record content from cameras.
+- Capture and save images in the JPEG format.
+- Interact with cameras.
 
-## Steps to integrate the SDK
+## Integrate with the SDK
 ###  Step 1
-Modify some parameters in MainActivity.java to the appropriate ones
+Modify the following parameters of the method `- (instancetype)initWithFrame:(CGRect)frame` in the file `ARDVideoCallView.m`.
 ``` c
     ...
     _clientId = @"input your client id";
@@ -29,8 +25,8 @@ Modify some parameters in MainActivity.java to the appropriate ones
 ``` 
 
 ### Step 2
-- According to your region, fill in the appropriate regionCode, you can refer to the following content `RegionCode Comparison Table`.
-- Here is the parameter that should be filled in with "cn" for my region (Hangzhou, Zhejiang Province, China)
+Set `regionCode` to the value that matches your region. For more information, see *RegionCode Comparison Table*.
+In the following example, `regionCode` is set to `cn` for the region (Hangzhou, Zhejiang Province, China).
 ```c
 [[TuyaRTCEngine alloc] initRtcEngineWithClientId:clientId 
                                         secretId:secret 
@@ -40,76 +36,75 @@ Modify some parameters in MainActivity.java to the appropriate ones
 ```
 
 ### Step 3
-Copy the library files
-- Copy the framework files from one of the Libraries versions to the current project and put it in the right place to make sure it can be linked correctly
+Copy the library files: Copy the framework files from one of the library versions and paste them to a directory of the current project to make sure that the library can be linked as expected.
 
 
-## Capabilities Overview
+## Capabilities
 
-**Interface Description**
+**API description**
 
-**TuyaRTCEngine Interface Description**
+**TuyaRTCEngine**
 
-| Parameters | Description |
+| Parameter | Description |
 | :------------ | :------------------------------------------------------------------- |
-| initRtcEngineWithClientId:secretId:authCodeId:regionCode:delegate: | Engine initialization |
-| destroyRtcEngine | Destroy the engine
-| createTuyaCameraWithDid:  | Creates a TuyaRTCCamera object, each object corresponds to a Camera or Stream.
-| destroyTuyaCameraWithDid:  | Destroy a TuyaRTCCamera object |
-| setLogConfigureWith:loggerHandler:level | Set the log output of the SDK. | getSdkVersion
-| getSdkVersion | Get the SDK version information.
-| getBuildTime | Get the SDK build time |
+| initRtcEngineWithClientId:secretId:authCodeId:regionCode:delegate: | Initializes the engine. |
+| destroyRtcEngine | Destroys the engine. |
+| createTuyaCameraWithDid:  | Creates an object of `TuyaRTCCamera`. The object corresponds to a camera or a stream. |
+| destroyTuyaCameraWithDid:  | Destroys an object of `TuyaRTCCamera`. |
+| setLogConfigureWith:loggerHandler:level | Sets the log output of the SDK. |
+| getSdkVersion | Returns information about the SDK version. |
+| getBuildTime | Returns the build time of the SDK. |
 
 
-**TuyaRTCCamera interface description**
-| parameters | description |
+**TuyaRTCCamera**
+| Parameter | Description |
 | :------------ | :------------------------------------------------------------------- |
-| startPreview | Start previewing the contents of the Camera |
-| stopPreview | Stop previewing the content of the camera.
-| startRecord | Start recording the contents of the camera |
-| stopRecord | stop recording the content of the Camera
-| snapShot | Snap a picture of the camera
-| muteAudio | Mute the camera's sound
-| muteVideo | Switch the camera screen on/off
-| getRemoteAudioMute | Get the mute state of the camera sound.
-| getRemoteVideoMute | Get the on/off state of the Camera video
+| startPreview | Starts previewing content from a camera. |
+| stopPreview | Stops previewing content from a camera.
+| startRecord | Starts recording content from a camera. |
+| stopRecord | Stops recording content from a camera. |
+| snapShot | Captures an image from a camera. |
+| muteAudio | Disables camera sound. |
+| muteVideo | Switches a camera video screen on or off. |
+| getRemoteAudioMute | Returns the mute status of a camera. |
+| getRemoteVideoMute | Returns the video screen status of a camera. |
 
 
-**TuyaRTCEngineHandler interface description**
-| parameters | description |
+**TuyaRTCEngineHandler**
+| Parameter | Description |
 | :------------ | :------------------------------------------------------------------- |
-| didInitalized | Callback function for successful SDK initialization |
-| diDestroyed | Callback function for successful destruction of the SDK
+| didInitalized | The callback function of successful SDK initialization. |
+| diDestroyed | The callback function of successful destruction with the SDK. |
 
-**TuyaRTCCameraHandler interface description**
-| parameters | description |
+**TuyaRTCCameraHandler**
+| Parameter | Description |
 | :------------ | :------------------------------------------------------------------- |
-| rtcCamera:didVideoFrame | The video data callback function for the current camera.
-| rtcCamera:didFristVideoFrameWith:andHeight  | The callback function for the first video frame of the current Camera.
-| rtcCamera:didResolutionChangedWithOldWidth:andOldHeight:andNewWidth:andNewHeight: | The callback function when the video resolution of the current Camera changes.
+| rtcCamera:didVideoFrame | The video data callback function for the current camera. |
+| rtcCamera:didFristVideoFrameWith:andHeight  | The callback function for the first video frame from the current camera. |
+| rtcCamera:didResolutionChangedWithOldWidth:andOldHeight:andNewWidth:andNewHeight: | The callback function that is executed when the video resolution of the current camera changes. |
 
 ## RegionCode Comparison Table
-| region abbreviation | range |
+| Region abbreviation | Region |
 | :------------ | :------------------------------------------------------------------- |
 | cn | China |
 | us | America |
 | eu | Europe |
 | in | India |
-| ue | EasternAmerica |
-| we | WesternEurope |
+| ue | America Azure |
+| we | Europe MS |
 
 
-## Docs
-Developers can refer to the API documentation located in the doc/html directory. Before reading, please download the code locally and open it in your browser
+## References
+For more information, see the API documentation located in the `doc/html` directory. Before you read these documents, download the sample code to your local directory and open `index.html` in your browser.
 
 ## Constraints
-- Applications can only have one TuyaRTCEngine engine
-- Applications can create different TuyaRTCCamera with different Device Identity
-- The application must be in the preview state when performing record, snapshot, or mute operations, otherwise the application may not perform the results you want.
+- Only one `TuyaRTCEngine` engine can be used for an application.
+- Multiple objects of `TuyaRTCCamera` can be created with different values of `device id`.
+- The application must be in the preview state during the recording, snapshot, or mute operations. Otherwise, the application might not run as expected.
 
 
 ## Our mission
-This SDK is a redevelopment based on WebRTC technology, and currently only provides simple audio and video features and scenarios. If you have found a lot of interesting ways to play with the current or subsequent WebRTC releases from Google, please contact us. Let's build a more interesting and meaningful Tuya IoT ecosystem with the ultimate experience WebRTC provides in audio and video.
+This SDK applies to redevelopment based on the WebRTC technology, and currently only supports simple audio and video features and smart scenes. If you have found more interesting ways to play with the current or subsequent WebRTC releases from Google, please contact us. Let's build a more robust and meaningful Tuya IoT ecosystem that provides the ultimate audio and video experience with WebRTC.
 
 
 ## Sample code 
@@ -367,6 +362,6 @@ didResolutionChangedWithOldWidth:(NSInteger)oldWidth
 
 
 ## Latest version
-1.0.0.0
+Version 1.0.0.0
 
 
