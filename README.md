@@ -100,11 +100,11 @@ Copy the library files
 
 
 ## Docs
-Please refer to [API Reference](doc/index/index.html). Before reading, please download the code locally and open it in your browser
+Developers can refer to the API documentation located in the doc/html directory. Before reading, please download the code locally and open it in your browser
 
 ## Constraints
 - Applications can only have one TuyaRTCEngine engine
-- Applications can create different TuyaRTCCamera with different device indentify
+- Applications can create different TuyaRTCCamera with different Device Identity
 - The application must be in the preview state when performing record, snapshot, or mute operations, otherwise the application may not perform the results you want.
 
 

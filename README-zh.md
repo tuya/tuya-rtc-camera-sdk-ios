@@ -95,12 +95,12 @@ copy 库文件
 | we | WesternEurope |
 
 ## Docs
-请参阅[API Reference](doc/index/index.html)，在阅读之前请把代码下载到本地，然后在用浏览器打开
+开发者可以参考API文档位于 doc/html 目录，在阅读之前请把代码下载到本地，然后在用浏览器打开
 
 ## 约束
-- 应用程序只能有一个TuyaRTCEngine引擎
-- 应用程序可以通过不同的device indentify 创建不同的TuyaRTCCamera
-- 应用程序在执行录制，snapshot，mute操作的时候一定是处在预览状态，否则程序执行结果可能不是你想要的
+- 应用程序只能有一个 TuyaRTCEngine 引擎
+- 应用程序可以通过不同的 Device Identity 创建不同的TuyaRTCCamera
+- 应用程序在执行录制，snapshot，mute 操作的时候一定是处在预览状态，否则程序执行结果可能不是你想要的
 
 ## 我们的使命
 本SDK是基于WebRTC技术的一次再开发，目前只是提供了简单的音、视频功能和场景。如果你在使用的过程中有发现目前或者后续Google 发布的WebRTC里面有很多有趣的玩法儿，请联系我们。让我们一起借助WebRTC在音视频方面提供的极致体验，打造一个更加有趣味和意义的Tuya IoT生态。
